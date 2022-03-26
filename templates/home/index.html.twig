@@ -1,13 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends '@AdminLTE/layout/default-layout.html.twig' %}
 
 {% block title %}{% endblock %}
 
 {% block body %}
-home
 	{% for message in app.flashes('success') %}
 		<div class="alert alert-success">
 			{{ message }}
 		</div>
 	{% endfor %}
-	
+
 {% endblock %}

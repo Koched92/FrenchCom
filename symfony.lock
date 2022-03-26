@@ -1,7 +1,4 @@
 {
-    "composer/package-versions-deprecated": {
-        "version": "1.11.99.4"
-    },
     "doctrine/annotations": {
         "version": "1.13",
         "recipe": {
@@ -100,14 +97,20 @@
             "config/routes/fos_js_routing.yaml"
         ]
     },
+    "kevinpapst/adminlte-bundle": {
+        "version": "3.6",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "0.9",
+            "ref": "36a77f782cd6f7cd761384c6a301fedf018e37e5"
+        },
+        "files": [
+            "config/packages/admin_lte.yaml"
+        ]
+    },
     "laminas/laminas-code": {
         "version": "4.5.1"
-    },
-    "laminas/laminas-eventmanager": {
-        "version": "3.4.0"
-    },
-    "laminas/laminas-zendframework-bridge": {
-        "version": "1.4.1"
     },
     "monolog/monolog": {
         "version": "2.3.5"
