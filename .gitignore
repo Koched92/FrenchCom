@@ -19,9 +19,19 @@
 .phpunit.result.cache
 ###< phpunit/phpunit ###
 
-
-
-
 ###> symfony/web-server-bundle ###
 /.web-server-pid
 ###< symfony/web-server-bundle ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
+###< friendsofphp/php-cs-fixer ###
+
+###> phpstan/phpstan ###
+phpstan.neon
+###< phpstan/phpstan ###
+
+###> Makefile ###
+Makefile
+###< Makefile ###

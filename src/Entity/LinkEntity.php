@@ -3,50 +3,46 @@
 namespace App\Entity;
 
 use App\Repository\LinkEntityRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=LinkEntityRepository::class)
+ *
+ * @SuppressWarnings(ShortVariable)
  */
 class LinkEntity
 {
     /**
      * @ORM\Id
+     *
      * @ORM\GeneratedValue
+     *
      * @ORM\Column(type="integer")
      */
-    private $id;
+    protected int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $url;
+    private string $url;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $title;
+    private string $title;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $creationDate;
-
-    /**
-     * @ORM\Column(type="simple_array", nullable=true)
-     */
-    private $tags = [];
+    private \DateTimeInterface $creationDate;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class)
+     *
      * @ORM\JoinColumn(nullable=false)
      */
-    private $user;
-
-    /**
-     * @ORM\Column(type="json", nullable=true)
-     */
-    private $statistics = [];
+    private User $user;
 
     public function getId(): ?int
     {
@@ -89,38 +85,14 @@ class LinkEntity
         return $this;
     }
 
-    public function getTags(): ?array
-    {
-        return $this->tags;
-    }
-
-    public function setTags(?array $tags): self
-    {
-        $this->tags = $tags;
-
-        return $this;
-    }
-
     public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function setUser(?User $user): self
+    public function setUser(User $user): self
     {
         $this->user = $user;
-
-        return $this;
-    }
-
-    public function getStatistics(): ?array
-    {
-        return $this->statistics;
-    }
-
-    public function setStatistics(?array $statistics): self
-    {
-        $this->statistics = $statistics;
 
         return $this;
     }

@@ -1,0 +1,66 @@
+grumphp:
+    stop_on_failure: false
+    process_timeout: 120
+    parallel:
+        enabled: true
+        max_workers: 20
+    tasks: 
+        phpcsfixer: #composer require --dev friendsofphp/php-cs-fixer
+            cache_file: ./var/cache/.php-cs-fixer.cache
+            verbose: true
+            diff: true
+            config: .php-cs-fixer.dist.php
+            triggered_by: ['php']
+        phplint: #composer require --dev php-parallel-lint/php-parallel-lint
+            triggered_by: ['php', 'phtml', 'php3', 'php4', 'php5']
+            metadata:
+                priority: 999
+        phpmd: #composer require --dev phpmd/phpmd
+            exclude: ['vendor', 'tests', 'config', 'var', 'src/Migrations', 'src/Infrastructure/Migrations', 'migrations']
+            ruleset: ['cleancode', 'codesize', 'controversial', 'design', 'naming', 'unusedcode']
+            metadata:
+                priority: 999
+        phpmnd: #composer require --dev povils/phpmnd
+            directory: .
+            whitelist_patterns: []
+            exclude: ['vendor', 'var']
+            exclude_name: []
+            exclude_path: []
+            extensions: []
+            hint: false
+            ignore_funcs: []
+            ignore_numbers: []
+            ignore_strings: []
+            strings: false
+            triggered_by: ['php']
+        phpstan: #composer require --dev phpstan/phpstan
+            configuration: phpstan.dist.neon
+            level: 9
+            memory_limit: '-1'
+            metadata:
+                priority: 999
+        securitychecker_enlightn:
+            lockfile: ./composer.lock
+            run_always: false
+            metadata:
+                priority: 999
+        twigcs: #composer require --dev "friendsoftwig/twigcs:>=4"
+            path: '.'
+            severity: 'warning'
+            display: 'all'
+            ruleset: 'FriendsOfTwig\Twigcs\Ruleset\Official'
+            triggered_by: ['twig']
+            exclude: ['vendor']
+        yamllint:
+            whitelist_patterns: []
+            ignore_patterns: []
+            object_support: false
+            exception_on_invalid_type: false
+            parse_constant: false
+            parse_custom_tags: false
+        composer_normalize: #composer require --dev ergebnis/composer-normalize
+            indent_size: ~
+            indent_style: ~
+            no_check_lock: false
+            no_update_lock: true
+            verbose: false

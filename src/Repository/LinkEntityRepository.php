@@ -9,10 +9,14 @@ use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
+ * @extends ServiceEntityRepository<LinkEntity>
+ *
  * @method LinkEntity|null find($id, $lockMode = null, $lockVersion = null)
  * @method LinkEntity|null findOneBy(array $criteria, array $orderBy = null)
  * @method LinkEntity[]    findAll()
  * @method LinkEntity[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ *
+ * @SuppressWarnings(BooleanArgumentFlag)
  */
 class LinkEntityRepository extends ServiceEntityRepository
 {

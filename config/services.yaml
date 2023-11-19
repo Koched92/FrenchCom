@@ -6,7 +6,7 @@
 parameters:
     maintenance:
         statut: false
-        ipAuthorized: [""]
+        ipAuthorized: ["zczdc", "zdcdzccdzd"]
 
 services:
     # default configuration for services in *this* file
@@ -29,4 +29,5 @@ services:
     App\EventListener\MaintenanceListener:
         tags:
             - { name: kernel.event_listener, event: kernel.request }
-        arguments: ['%maintenance%'] 
+        arguments: 
+            $maintenance: '%maintenance%'
