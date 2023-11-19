@@ -1,0 +1,4 @@
+easy_admin:
+    design:
+        menu:
+            - { entity: 'App\Entity\LinkEntity' } # Remplacez "YourEntity" par votre entité principale

@@ -79,6 +79,15 @@
     "doctrine/sql-formatter": {
         "version": "1.1.2"
     },
+    "easycorp/easyadmin-bundle": {
+        "version": "3.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "3.0",
+            "ref": "b131e6cbfe1b898a508987851963fff485986285"
+        }
+    },
     "egulias/email-validator": {
         "version": "3.1.2"
     },
@@ -95,18 +104,6 @@
         },
         "files": [
             "config/routes/fos_js_routing.yaml"
-        ]
-    },
-    "kevinpapst/adminlte-bundle": {
-        "version": "3.6",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "0.9",
-            "ref": "36a77f782cd6f7cd761384c6a301fedf018e37e5"
-        },
-        "files": [
-            "config/packages/admin_lte.yaml"
         ]
     },
     "laminas/laminas-code": {
@@ -492,6 +489,9 @@
     },
     "symfony/polyfill-php81": {
         "version": "v1.24.0"
+    },
+    "symfony/polyfill-uuid": {
+        "version": "v1.28.0"
     },
     "symfony/process": {
         "version": "v5.4.2"

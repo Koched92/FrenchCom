@@ -16,9 +16,20 @@ class LoginController extends AbstractController
     {
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
-        return $this->render('login/index.html.twig', [
+        return $this->render('@EasyAdmin/page/login.html.twig', [
             'last_username' => $lastUsername,
             'error'         => $error,
+            'page_title' => 'ACME login',
+            'username_label' => 'Your username',
+            'password_label' => 'Your password',
+            'sign_in_label' => 'Log in',
+            'forgot_password_enabled' => true,
+            'forgot_password_label' => 'Forgot your password?',
+            'remember_me_enabled' => true,
+            'remember_me_parameter' => 'custom_remember_me_param',
+            'remember_me_label' => 'Remember me',
+            'csrf_token_intention' => 'authenticate',
+
         ]);
     }
 
