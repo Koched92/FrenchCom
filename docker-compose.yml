@@ -1,0 +1,40 @@
+version: '2.23.0'
+services:
+  frenchCom:
+    image: 'bitnami/symfony:5.4.31'
+    ports:
+      - '8000:8000'
+    volumes:
+      - '.:/app'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - SYMFONY_PROJECT_SKELETON=symfony/skeleton
+      - SYMFONY_PROJECT_NAME=frenchCom
+    depends_on:
+      - mysql_db
+  apache:
+    image: 'bitnami/apache:2.4.52'
+    ports:
+      - '80:8080'
+      - '443:8443'
+    volumes:
+      - '.:/app'
+    depends_on:
+      - frenchCom
+  mysql_db:
+    image: 'bitnami/mysql:8.0.35'
+    environment:      
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - db-data:/var/lib/mysql
+    ports:
+      - "3308:3306"
+volumes:
+  db-data: {}
+
+
+
+

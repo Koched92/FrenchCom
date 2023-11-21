@@ -16,9 +16,10 @@ class LoginController extends AbstractController
     {
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
+
         return $this->render('@EasyAdmin/page/login.html.twig', [
             'last_username' => $lastUsername,
-            'error'         => $error,
+            'error' => $error,
             'page_title' => 'ACME login',
             'username_label' => 'Your username',
             'password_label' => 'Your password',
@@ -29,12 +30,13 @@ class LoginController extends AbstractController
             'remember_me_parameter' => 'custom_remember_me_param',
             'remember_me_label' => 'Remember me',
             'csrf_token_intention' => 'authenticate',
-
         ]);
     }
 
     /**
      * @Route("/logout", name="app_logout", methods={"GET"})
+     *
+     * @SuppressWarnings(MissingImport)
      */
     public function logout(): void
     {
