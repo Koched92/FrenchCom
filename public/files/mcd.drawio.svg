@@ -1,0 +1,149 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="698px" height="552px" viewBox="-0.5 -0.5 698 552" content="&lt;mxfile&gt;&lt;diagram id=&quot;xtb-BBI9T1M_PPKgRwwZ&quot; name=&quot;Page-1&quot;&gt;7VpdT+M6EP01fUX57McjtCx7JVZCy0p3efQmJrFw48hxoOHX33FiN7FTuqGkwBXlhXjGHttzzpnYUSf+cr254ihPf7AY04nnxJuJv5p4nussQvgnLVVjCQK/MSScxKpTa7glz1iPVNaSxLgwOgrGqCC5aYxYluFIGDbEOXsyu90zas6aowT3DLcRon3rvyQWaWOdh05r/45JkuqZXUd5/qDoIeGszNR8Gctw41kjHUZ1LVIUs6eOyb+c+EvOmGie1pslpjKtOmPNuG8veLdL5jgTQwYEasQjoqXa9jXJHtTiRKVzUTyRNUWwDf8iSgmNr1HFSjlDIWCzunWRMk6eWSYQBZcLBnBzoaD1HaPHrRwJZmmtk4VjNege/GqMG+i2WotTB+XsYYuJJ8fjAvrf6G07W9M1KoReik619MaoSOv5ZANRkmTwHMFozMHQz6JOE+YCbzomldUrzNZY8Aq6KK8fKPYr8k8V4E8tk1xtS7ss8pURKfYm29AtjPCgkHwBVa+H6sS7yNAaaDideL7r1Ju8KGiZmJaSU9MACow4yQVhmemIOEYCx+fCCpDH2mxRSGeZ4nuxBXHJKIOMr2qJANKEUstU5CgiWXJdj1oFFj0k+BIUArI9VxMIlmv80Z8taTgTSHTagK5mRh/uYDjeCl9/KL7OGPgGPXx/oeQk2reKNpw7pmjDgaB64QighoeK9otqNBgM7ys1uhgDzWkPzX8iic9Jo2/TqC3Rd32vzg6VaC4PfmYficMXUut0MNAf8kad7zwHf0fFEpKfMBXt6yq3y6MY36OSiuMclL3FUNy9EXDXl7kO7ifAj3UHCt4X2v7V9nSe2lOht1IY/zw1Bpr9K60W6hUoJz+pdeSD1TvXYf81Yv0/q8wbjMtHqGzXHdTKNo4TrLkN2yKi+okpksXysvX0UpmKtVYYzuJz+XkWmpc/1yirtOp6VgjPq98qrXXjTjbOQt1cbbrOVaVbGyJ+69nguTMKWu0g2agmuwT9op4KVvJIZUJ/ZoO1J1ifc1UGZZb2otuF09l3rOV1dh/Nj9K7QFZz3DACa25fwjNL13OLJ82O1Kjup2IrUGAFcu1ATRp6gWrObTc+jIb9y/ORaQgV4Rf70bDOZMIhXDqUt8NYN9vBOu/Eurezbtft3mLdeHxqOXTX8fyNTy2F7gwGvYVPu6rY/JPzyQ9H4pNnBxqRT/1vCkfkk1mfvOMUqG7RZVykLGEZot2CG5X88XVvUX30+9T8C3zrK4X90Wkw/6xAvh1oRP4tPq6eOQfVM3eMeqYFfeLTyHyaDng//r1ADGXcM+ZsSznwfCNU92sJaBz2zxzXN4rg1J/vpyE0bjAnkAN5id5PsU9DnVngnDmzRftnno/C2VngdrzTw3gFs5hx3WG8AgBR1emWyw7Fnt1M5/b696/L7u8aP3CBh2YFA0kOzfbHNk339sdM/uV/&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs/>
+    <g>
+        <path d="M 426 31 L 426 14.5 Q 426 1 412.5 1 L 279.5 1 Q 266 1 266 14.5 L 266 31" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-width="2" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 266 31 L 266 117.5 Q 266 131 279.5 131 L 412.5 131 Q 426 131 426 117.5 L 426 31" fill="none" stroke="rgb(0, 0, 0)" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 266 31 L 426 31" fill="none" stroke="rgb(0, 0, 0)" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" text-anchor="middle" font-size="14px">
+            <text x="345.5" y="21.5">
+                Link
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" font-size="12px">
+            <text x="271.5" y="48.5">
+                +name
+            </text>
+            <text x="271.5" y="62.5">
+                +slug
+            </text>
+            <text x="271.5" y="76.5">
+                +url
+            </text>
+            <text x="271.5" y="90.5">
+                +description
+            </text>
+            <text x="271.5" y="104.5">
+                +createdAt
+            </text>
+            <text x="271.5" y="118.5">
+                +updatedAt
+            </text>
+        </g>
+        <path d="M 661 36 L 661 19.5 Q 661 6 647.5 6 L 514.5 6 Q 501 6 501 19.5 L 501 36" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 501 36 L 501 117.5 Q 501 131 514.5 131 L 647.5 131 Q 661 131 661 117.5 L 661 36" fill="none" stroke="rgb(0, 0, 0)" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 501 36 L 661 36" fill="none" stroke="rgb(0, 0, 0)" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" text-anchor="middle" font-size="14px">
+            <text x="580.5" y="26.5">
+                Tag
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" font-size="12px">
+            <text x="506.5" y="53.5">
+                +name
+            </text>
+            <text x="506.5" y="67.5">
+                +slug
+            </text>
+            <text x="506.5" y="81.5">
+                +description
+            </text>
+            <text x="506.5" y="95.5">
+                +createdAt
+            </text>
+            <text x="506.5" y="109.5">
+                +updatedAt
+            </text>
+        </g>
+        <path d="M 161 31 L 161 14.5 Q 161 1 147.5 1 L 14.5 1 Q 1 1 1 14.5 L 1 31" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1 31 L 1 117.5 Q 1 131 14.5 131 L 147.5 131 Q 161 131 161 117.5 L 161 31" fill="none" stroke="rgb(0, 0, 0)" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1 31 L 161 31" fill="none" stroke="rgb(0, 0, 0)" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" text-anchor="middle" font-size="14px">
+            <text x="80.5" y="21.5">
+                Icon
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" font-size="12px">
+            <text x="6.5" y="48.5">
+                +name
+            </text>
+            <text x="6.5" y="62.5">
+                +slug
+            </text>
+            <text x="6.5" y="76.5">
+                +path
+            </text>
+            <text x="6.5" y="90.5">
+                +size
+            </text>
+            <text x="6.5" y="104.5">
+                +createdAt
+            </text>
+            <text x="6.5" y="118.5">
+                +updatedAt
+            </text>
+        </g>
+        <path d="M 426 261 L 426 244.5 Q 426 231 412.5 231 L 279.5 231 Q 266 231 266 244.5 L 266 261" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 266 261 L 266 337.5 Q 266 351 279.5 351 L 412.5 351 Q 426 351 426 337.5 L 426 261" fill="none" stroke="rgb(0, 0, 0)" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 266 261 L 426 261" fill="none" stroke="rgb(0, 0, 0)" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" text-anchor="middle" font-size="14px">
+            <text x="345.5" y="251.5">
+                LinkHasCategory
+            </text>
+        </g>
+        <path d="M 426 461 L 426 444.5 Q 426 431 412.5 431 L 279.5 431 Q 266 431 266 444.5 L 266 461" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 266 461 L 266 537.5 Q 266 551 279.5 551 L 412.5 551 Q 426 551 426 537.5 L 426 461" fill="none" stroke="rgb(0, 0, 0)" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 266 461 L 426 461" fill="none" stroke="rgb(0, 0, 0)" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" text-anchor="middle" font-size="14px">
+            <text x="345.5" y="451.5">
+                Category
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" font-size="12px">
+            <text x="271.5" y="478.5">
+                +name
+            </text>
+            <text x="271.5" y="492.5">
+                +slug
+            </text>
+            <text x="271.5" y="506.5">
+                +description
+            </text>
+            <text x="271.5" y="520.5">
+                +createdAt
+            </text>
+            <text x="271.5" y="534.5">
+                +updatedAt
+            </text>
+        </g>
+        <path d="M 161 261 L 161 244.5 Q 161 231 147.5 231 L 14.5 231 Q 1 231 1 244.5 L 1 261" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1 261 L 1 337.5 Q 1 351 14.5 351 L 147.5 351 Q 161 351 161 337.5 L 161 261" fill="none" stroke="rgb(0, 0, 0)" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1 261 L 161 261" fill="none" stroke="rgb(0, 0, 0)" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" text-anchor="middle" font-size="14px">
+            <text x="80.5" y="251.5">
+                CategoryGroup
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" font-size="12px">
+            <text x="6.5" y="278.5">
+                +name
+            </text>
+            <text x="6.5" y="292.5">
+                +slug
+            </text>
+        </g>
+        <path d="M 426 81 L 446 81 Q 456 81 463.5 82.25 L 467.25 82.88 Q 471 83.5 481 83.5 L 501 83.5" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 426 85 L 434 81 L 426 77" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 501 79.5 L 493 83.5 L 501 87.5" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 161 81 L 181 81 Q 191 81 201 81 L 226 81 Q 236 81 246 81 L 266 81" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 258 85 L 258 77 M 266 77 L 258 81 L 266 85" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 346 131 L 346 231" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 342 223 L 350 223 M 350 231 L 346 223 L 342 231" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 161 283.5 Q 213.5 283.5 213.5 287.25 Q 213.5 291 266 291" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 258 295 L 258 287 M 266 287 L 258 291 L 266 295" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 346 431 L 346 351" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 350 359 L 342 359 M 342 351 L 346 359 L 350 351" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 661.08 98.42 L 689 98.4 L 689 51 L 661 51" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="673" cy="51" rx="3" ry="3" fill="#ffffff" stroke="rgb(0, 0, 0)" pointer-events="none"/>
+        <path d="M 661 55 L 669 51 L 661 47" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+    </g>
+</svg>

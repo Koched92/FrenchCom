@@ -2,13 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\LinkEntityRepository;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=LinkEntityRepository::class)
- *
  * @SuppressWarnings(ShortVariable)
  */
 class LinkEntity
