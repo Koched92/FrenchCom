@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use App\Entity\Traits\HasIdTrait;
+use App\Entity\Traits\HasTimestampTrait;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use phpDocumentor\Reflection\Types\Boolean;
@@ -19,14 +21,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
-    /**
-     * @ORM\Id
-     *
-     * @ORM\GeneratedValue
-     *
-     * @ORM\Column(type="integer")
-     */
-    protected int $id;
+    use HasIdTrait;
+    use HasTimestampTrait;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)

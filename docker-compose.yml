@@ -1,26 +1,21 @@
 version: '2.23.0'
 services:
-  frenchCom:
-    image: 'bitnami/symfony:5.4.31'
-    ports:
-      - '8000:8000'
-    volumes:
-      - '.:/app'
-    environment:
-      - ALLOW_EMPTY_PASSWORD=yes
-      - SYMFONY_PROJECT_SKELETON=symfony/skeleton
-      - SYMFONY_PROJECT_NAME=frenchCom
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile_Symfony
     depends_on:
       - mysql_db
-  apache:
-    image: 'bitnami/apache:2.4.52'
-    ports:
-      - '80:8080'
-      - '443:8443'
     volumes:
-      - '.:/app'
+      - .:/srv
+  nginx_frenchom:
+    image: drakona/nginx:8-symfony
     depends_on:
-      - frenchCom
+      - app
+    volumes:
+      - .:/srv
+    ports:
+      - "8000:80"
   mysql_db:
     image: 'bitnami/mysql:8.0.35'
     environment:      
