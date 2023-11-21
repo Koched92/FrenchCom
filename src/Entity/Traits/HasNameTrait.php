@@ -4,7 +4,6 @@ namespace App\Entity\Traits;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Symfony\Component\Serializer\Annotation\Groups;
 
 trait HasNameTrait
 {
@@ -17,8 +16,6 @@ trait HasNameTrait
      * @gedmo\Slug(fields={"name"}, unique=true)
      *
      * @ORM\Column(type="string", length=128, unique=true)
-     *
-     * @Groups("get","Recipe:item:get")
      */
     private string $slug;
 
