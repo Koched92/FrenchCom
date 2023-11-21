@@ -4,6 +4,15 @@ grumphp:
     parallel:
         enabled: true
         max_workers: 20
+    ascii:
+        failed:
+            - public/ascii/grumphp/failed/grumphp-grumpy.txt
+            - public/ascii/grumphp/failed/nopecat.txt
+            - public/ascii/grumphp/failed/failed.txt
+        succeeded:
+            - public/ascii/grumphp/succeeded/grumphp-happy.txt
+            - public/ascii/grumphp/succeeded/me-gusta.txt
+            - public/ascii/grumphp/succeeded/succeeded.txt
     tasks: 
         phpcsfixer: #composer require --dev friendsofphp/php-cs-fixer
             cache_file: ./var/cache/.php-cs-fixer.cache
