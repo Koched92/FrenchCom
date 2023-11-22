@@ -20,8 +20,6 @@ final class Version20231121160037 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE link_entity DROP FOREIGN KEY FK_6FEC00E7A76ED395');
-        $this->addSql('DROP TABLE link_entity');
         $this->addSql('ALTER TABLE user ADD created_at DATETIME NOT NULL, ADD updated_at DATETIME NOT NULL');
     }
 

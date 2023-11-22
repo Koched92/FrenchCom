@@ -34,7 +34,6 @@ final class Version20231121154805 extends AbstractMigration
         $this->addSql('ALTER TABLE tag ADD CONSTRAINT FK_389B783727ACA70 FOREIGN KEY (parent_id) REFERENCES tag (id) ON DELETE SET NULL');
         $this->addSql('ALTER TABLE tag_link ADD CONSTRAINT FK_D8A32647BAD26311 FOREIGN KEY (tag_id) REFERENCES tag (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE tag_link ADD CONSTRAINT FK_D8A32647ADA40271 FOREIGN KEY (link_id) REFERENCES link (id) ON DELETE CASCADE');
-        $this->addSql('DROP TABLE link_entity');
     }
 
     public function down(Schema $schema): void

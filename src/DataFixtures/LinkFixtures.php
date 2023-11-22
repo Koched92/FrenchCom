@@ -7,7 +7,6 @@ use App\Entity\Link;
 use App\Repository\IconRepository;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\Console\Output\ConsoleOutput;
 
 class LinkFixtures extends AbstractFixtures implements DependentFixtureInterface
 {
