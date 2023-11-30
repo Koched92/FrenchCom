@@ -2,29 +2,23 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Tag;
+use App\Entity\CategoryGroup;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
-class TagCrudController extends AbstractCrudController
+class CategoryGroupCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Tag::class;
+        return CategoryGroup::class;
     }
 
-    /**
-     *  @SuppressWarnings(UnusedFormalParameter)
-     *  @SuppressWarnings(StaticAccess)
-     */
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id')->hideOnIndex(),
+            IdField::new('id')->hideOnForm(),
             TextField::new('name'),
-            TextEditorField::new('description'),
         ];
     }
 }

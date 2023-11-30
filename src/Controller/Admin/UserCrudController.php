@@ -16,6 +16,10 @@ class UserCrudController extends AbstractCrudController
         return User::class;
     }
 
+    /**
+     *  @SuppressWarnings(UnusedFormalParameter)
+     *  @SuppressWarnings(StaticAccess)
+     */
     public function configureFields(string $pageName): iterable
     {
         return [

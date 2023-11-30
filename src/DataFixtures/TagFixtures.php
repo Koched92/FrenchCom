@@ -23,7 +23,7 @@ class TagFixtures extends AbstractFixtures
     {
         $tags = $this->tagRepository->findAll();
 
-        $nbTags = 15;
+        $nbTags = 100;
 
         // empty array instance
         $tags = [];

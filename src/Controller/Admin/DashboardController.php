@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Category;
+use App\Entity\CategoryGroup;
+use App\Entity\Icon;
 use App\Entity\Link;
 use App\Entity\Tag;
 use App\Entity\User;
@@ -44,7 +46,8 @@ class DashboardController extends AbstractDashboardController
             ->setTitle('FrenchCom')
             ->setFaviconPath('img/favicon.svg')
             ->disableUrlSignatures()
-            ->generateRelativeUrls();
+            ->generateRelativeUrls()
+            ->renderContentMaximized();
     }
 
     public function configureMenuItems(): iterable
@@ -55,35 +58,33 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Links', 'fas fa-list', LinkEntity::class); */
 
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::section('Movies');
 
-        yield MenuItem::linkToUrl('Search in Google', 'fab fa-google', 'https://google.com');
-        yield MenuItem::linkToUrl('Search on Facebook', 'fab fa-facebook', 'https://facebook.com');
-        yield MenuItem::linkToUrl('Search on YouTube', 'fab fa-youtube', 'https://youtube.com');
-        yield MenuItem::section('Books');
-        yield MenuItem::section('Series');
-        yield MenuItem::section('Intertainments');
-        yield MenuItem::section('Users');
-        $userRepository = $this->em->getRepository(User::class);
+        yield MenuItem::section('Links');
         $linkRepository = $this->em->getRepository(Link::class);
         $tagRepository = $this->em->getRepository(Tag::class);
-        $cartegoryRepository = $this->em->getRepository(Category::class);
-
-        $userCount = $userRepository->count([]);
+        $categoryGroupsRepository = $this->em->getRepository(CategoryGroup::class);
+        $categoryRepository = $this->em->getRepository(Category::class);
+        $IconRepository = $this->em->getRepository(Icon::class);
         $linkCount = $linkRepository->count([]);
         $tagCount = $tagRepository->count([]);
-        $categoryCount = $cartegoryRepository->count([]);
-
-        yield MenuItem::linkToCrud('Users', 'fa fa-user', User::class)
+        $categoryGroupsCount = $categoryGroupsRepository->count([]);
+        $categoryCount = $categoryRepository->count([]);
+        $iconCount = $IconRepository->count([]);
+        yield MenuItem::linkToCrud('Links', 'fas fa-link', Link::class)
+            ->setBadge($linkCount, 'primary');
+        yield MenuItem::linkToCrud('Tags', 'fas fa-tags', Tag::class)
+            ->setBadge($tagCount, 'primary');
+        yield MenuItem::linkToCrud('Category Groups', 'fab fa-elementor', CategoryGroup::class)
+            ->setBadge($categoryGroupsCount, 'primary');
+        yield MenuItem::linkToCrud('Categories', 'fab fa-elementor', Category::class)
+            ->setBadge($categoryCount, 'primary');
+        yield MenuItem::linkToCrud('Icons', 'fas fa-icons', Icon::class)
+            ->setBadge($iconCount, 'primary');
+        yield MenuItem::section('Users');
+        $userRepository = $this->em->getRepository(User::class);
+        $userCount = $userRepository->count([]);
+        yield MenuItem::linkToCrud('Users', 'fas fa-users', User::class)
             ->setBadge($userCount, 'primary');
-        yield MenuItem::linkToCrud('Links', 'fa fa-user', Link::class)
-        ->setBadge($linkCount, 'primary');
-        yield MenuItem::linkToCrud('Tags', 'fa fa-user', Tag::class)
-        ->setBadge($tagCount, 'primary');
-        yield MenuItem::linkToCrud('Categories', 'fa fa-user', Category::class)
-        ->setBadge($categoryCount, 'primary');
-        yield MenuItem::linkToLogout('Logout', 'fa fa-sign-out');
-        yield MenuItem::linkToExitImpersonation('Stop impersonation', 'fas fa-door-open');
     }
 
     /**
@@ -97,6 +98,7 @@ class DashboardController extends AbstractDashboardController
             ->addMenuItems([
                 MenuItem::linkToRoute('My Profile', 'fa fa-id-card', '...', ['...' => '...']),
                 MenuItem::linkToRoute('Settings', 'fa fa-user-cog', '...', ['...' => '...']),
+                MenuItem::linkToExitImpersonation('Stop impersonation', 'fas fa-door-open'),
             ]);
     }
 }
