@@ -2,13 +2,14 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Category;
+use App\Entity\CategoryGroup;
 use App\Entity\LinkHasCategory;
 use App\Repository\CategoryGroupRepository;
 use App\Repository\CategoryRepository;
 use App\Repository\LinkRepository;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\Console\Output\ConsoleOutput;
 
 class LinkHasCategoryFixtures extends AbstractFixtures implements DependentFixtureInterface
 {
@@ -23,35 +24,37 @@ class LinkHasCategoryFixtures extends AbstractFixtures implements DependentFixtu
     /**
      * @var CategoryGroupRepository
      */
-    protected $categoryGroupRepository;
+    protected $categGroupRepository;
 
     public function __construct(
         LinkRepository $linkRepository,
         CategoryRepository $categoryRepository,
-        CategoryGroupRepository $categoryGroupRepository
+        CategoryGroupRepository $categGroupRepository
     ) {
         $this->linkRepository = $linkRepository;
         $this->categoryRepository = $categoryRepository;
-        $this->categoryGroupRepository = $categoryGroupRepository;
+        $this->categGroupRepository = $categGroupRepository;
 
         parent::__construct();
     }
 
     public function load(ObjectManager $manager): void
     {
-        $output = new ConsoleOutput();
-
         $links = $this->linkRepository->findAll();
         $categories = $this->categoryRepository->findAll();
-        $categoryGroups = $this->categoryGroupRepository->findAll();
+        $categoryGroups = $this->categGroupRepository->findAll();
 
         foreach ($links as $link) {
             $lhc = new LinkHasCategory();
             $randomCategGroup = $this->faker->randomElement($categoryGroups);
             $randomCateg = $this->faker->randomElement($categories);
-            $lhc->setCategoryGroup($randomCategGroup)
-              ->setCategory($randomCateg)
-              ->setLink($link);
+            if (!is_null($randomCategGroup) && $randomCategGroup instanceof CategoryGroup) {
+                $lhc->setCategoryGroup($randomCategGroup);
+            }
+            if (!is_null($randomCateg) && $randomCateg instanceof Category) {
+                $lhc->setCategory($randomCateg);
+            }
+            $lhc->setLink($link);
 
             $manager->persist($lhc);
         }

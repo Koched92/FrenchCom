@@ -9,20 +9,24 @@ class CategoryGroupFixtures extends AbstractFixtures
 {
     public function load(ObjectManager $manager): void
     {
-        $CategorieGroups = [
+        $categorieGroups = [
           'Gaming',
           'Education',
           'Tips',
         ];
-        for ($i = 0; $i < count($CategorieGroups); ++$i) {
+        $categorieGroupsCount = count($categorieGroups);
+        for ($i = 0; $i < $categorieGroupsCount; ++$i) {
             $categoryGroup = new CategoryGroup();
-            $categoryGroup->setName($CategorieGroups[$i]);
+            $categoryGroup->setName($categorieGroups[$i]);
             $manager->persist($categoryGroup);
         }
         $manager->flush();
     }
 
-    public function getDependencies(): array
+    /**
+     * @return array<int, string>
+     */
+    public function getDependencies()
     {
         return [
             LinkFixtures::class,

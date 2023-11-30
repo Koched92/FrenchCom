@@ -8,6 +8,10 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 
+/**
+ *  @SuppressWarnings(UnusedFormalParameter)
+ *  @SuppressWarnings(StaticAccess)
+ */
 class IconCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
