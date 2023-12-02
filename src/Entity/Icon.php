@@ -25,9 +25,9 @@ class Icon
     private string $path;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="float")
      */
-    private int $size;
+    private float $size;
 
     /**
      * @var Collection<int, Link>
@@ -53,12 +53,12 @@ class Icon
         return $this;
     }
 
-    public function getSize(): ?int
+    public function getSize(): ?float
     {
         return $this->size;
     }
 
-    public function setSize(int $size): self
+    public function setSize(float $size): self
     {
         $this->size = $size;
 

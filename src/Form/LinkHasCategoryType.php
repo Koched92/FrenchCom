@@ -9,12 +9,14 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class LinkHasCategoryType extends AbstractType
 {
+    /**
+     * @SuppressWarnings(UnusedFormalParameter)
+     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('categoryGroup')
-            ->add('category')
-        ;
+            ->add('category');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

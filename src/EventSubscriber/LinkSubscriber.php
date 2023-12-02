@@ -24,7 +24,10 @@ class LinkSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function getFavIcon(BeforeEntityPersistedEvent $event)
+    /**
+     * @SuppressWarnings(StaticAccess)
+     */
+    public function getFavIcon(BeforeEntityPersistedEvent $event): void
     {
         $entity = $event->getEntityInstance();
 
@@ -37,7 +40,9 @@ class LinkSubscriber implements EventSubscriberInterface
         $routes = new RouteCollection();
         $routes->add('default', new Route('/'));
         $requestContext = new RequestContext();
-        $requestContext->fromRequest(Request::create($url));
+        if (null !== $url) {
+            $requestContext->fromRequest(Request::create($url));
+        }
         $urlMatcher = new UrlMatcher($routes, $requestContext);
         $domain = $urlMatcher->getContext()->getHost();
 
@@ -48,11 +53,11 @@ class LinkSubscriber implements EventSubscriberInterface
             $response = $client->request('GET', $faviconLink);
             $headers = $response->getHeaders();
             $fileSize = $headers['content-length'][0];
-            $fileSizeInKB = round($fileSize / 1024, 2);
+            $fileSizeInKB = round(floatval($fileSize) / 1024, 2);
 
             // Set icon
             $icon->setPath($faviconLink);
-            $icon->setSize($fileSizeInKB);
+            $icon->setSize(floatval($fileSizeInKB));
             $icon->setName($domain);
         } catch (\Exception $e) {
             // Handle the exception when the icon is not found
