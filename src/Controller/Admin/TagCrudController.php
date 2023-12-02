@@ -2,28 +2,29 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\LinkEntity;
+use App\Entity\Tag;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
-class LinkEntityCrudController extends AbstractCrudController
+class TagCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return LinkEntity::class;
+        return Tag::class;
     }
 
     /**
-     * @SuppressWarnings(UnusedFormalParameter)
-     * @SuppressWarnings(StaticAccess)
+     *  @SuppressWarnings(UnusedFormalParameter)
+     *  @SuppressWarnings(StaticAccess)
      */
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextField::new('url'),
+            IdField::new('id')->hideOnIndex(),
+            TextField::new('name'),
+            TextEditorField::new('description'),
         ];
     }
 }

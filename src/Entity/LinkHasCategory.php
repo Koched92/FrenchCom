@@ -65,4 +65,14 @@ class LinkHasCategory
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        // Renvoyer une représentation sous forme de chaîne de l'objet
+        if (null !== $this->getCategory()) {
+            return (string) $this->getCategory()->getName();
+        }
+
+        return 'Empty';
+    }
 }

@@ -24,12 +24,10 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
-      - db-data:/var/lib/mysql
+      - db-data:/bitnami/mysql
     ports:
       - "3308:3306"
 volumes:
-  db-data: {}
-
-
+  db-data:
 
 

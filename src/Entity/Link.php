@@ -27,7 +27,7 @@ class Link
     private string $url;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Icon::class, inversedBy="links")
+     * @ORM\ManyToOne(targetEntity=Icon::class, inversedBy="links", cascade={"persist"})
      */
     private ?Icon $icon;
 
@@ -41,7 +41,7 @@ class Link
     /**
      * @var Collection<int, LinkHasCategory>
      *
-     * @ORM\OneToMany(targetEntity=LinkHasCategory::class, mappedBy="link")
+     * @ORM\OneToMany(targetEntity=LinkHasCategory::class, mappedBy="link", cascade={"persist"})
      */
     private Collection $linkHasCategories;
 
@@ -130,5 +130,10 @@ class Link
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return (string) $this->getName();
     }
 }
