@@ -7,6 +7,13 @@
 {% endblock %}
 
 {% block wrapper_wrapper %}
+	{% for label, messages in app.flashes(['warning', 'error', 'success', 'notice']) %}
+		{% for message in messages %}
+			<div class="alert alert-{{ label }}">
+				{{ message }}
+			</div>
+		{% endfor %}
+	{% endfor %}
 	<div class="login-wrapper">
 		<section class="content">
 			{{ form_start(registrationForm) }}

@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Entity\Traits\HasIdTrait;
 use App\Entity\Traits\HasTimestampTrait;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -21,8 +20,18 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
-    use HasIdTrait;
     use HasTimestampTrait;
+
+    /**
+     * @ORM\Id
+     *
+     * @ORM\GeneratedValue
+     *
+     * @ORM\Column(type="integer")
+     *
+     * @phpstan-ignore-next-line
+     */
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=80)
@@ -176,7 +185,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->plainPassword = null;
     }
 
-    public function isVerified(): bool
+    public function getIsVerified(): bool
     {
         return $this->isVerified;
     }

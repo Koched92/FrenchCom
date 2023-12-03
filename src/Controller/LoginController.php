@@ -22,7 +22,7 @@ class LoginController extends AbstractController
             'error' => $error,
             'username_label' => 'Your Email',
             'password_label' => 'Your password',
-            'target_path' => $this->generateUrl('admin'),
+            'target_path' => $this->generateUrl('home'),
             'sign_in_label' => 'Log in',
             'forgot_password_enabled' => true,
             'forgot_password_label' => 'Forgot your password?',
