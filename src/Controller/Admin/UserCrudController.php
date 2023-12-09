@@ -34,6 +34,7 @@ class UserCrudController extends AbstractCrudController
             ChoiceField::new('roles')->setChoices([
                 'ROLE_SUPER_ADMIN' => 'ROLE_SUPER_ADMIN',
                 'ROLE_ADMIN' => 'ROLE_ADMIN',
+                'ROLE_USER' => 'ROLE_USER',
             ])->setRequired(false)->allowMultipleChoices(true),
             TextField::new('plainPassword')->hideOnIndex(),
             DateTimeField::new('createdAt')->hideOnForm(),
