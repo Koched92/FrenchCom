@@ -31,3 +31,6 @@ services:
             - { name: kernel.event_listener, event: kernel.request }
         arguments: 
             $maintenance: '%maintenance%'
+    App\EventListener\LoginListener:
+        tags:
+            - { name: 'kernel.event_listener', event: 'security.interactive_login' }

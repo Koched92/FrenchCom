@@ -19,7 +19,7 @@ trait HasTimestampTrait
     protected ?\DateTime $createdAt;
 
     /**
-     * @gedmo\Timestampable(on="create")
+     * @gedmo\Timestampable(on="update")
      *
      * @ORM\Column(type="datetime")
      *

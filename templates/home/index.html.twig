@@ -3,10 +3,11 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-	{% for message in app.flashes('success') %}
-		<div class="alert alert-success">
-			{{ message }}
-		</div>
-	{% endfor %}
-
+{% for label, messages in app.flashes(['warning', 'error', 'success', 'notice']) %}
+    {% for message in messages %}
+        <div class="alert alert-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
 {% endblock %}

@@ -20,9 +20,9 @@ class LoginController extends AbstractController
         return $this->render('@EasyAdmin/page/login.html.twig', [
             'last_username' => $lastUsername,
             'error' => $error,
-            'page_title' => 'ACME login',
-            'username_label' => 'Your username',
+            'username_label' => 'Your Email',
             'password_label' => 'Your password',
+            'target_path' => $this->generateUrl('home'),
             'sign_in_label' => 'Log in',
             'forgot_password_enabled' => true,
             'forgot_password_label' => 'Forgot your password?',

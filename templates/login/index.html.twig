@@ -2,6 +2,13 @@
 
 
 {% block body %}
+	{% for label, messages in app.flashes(['warning', 'error', 'success', 'notice']) %}
+		{% for message in messages %}
+			<div class="alert alert-{{ label }}">
+				{{ message }}
+			</div>
+		{% endfor %}
+	{% endfor %}
 	{% if error %}
 		<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 	{% endif %}
@@ -15,7 +22,7 @@
 		type="password" id="password" name="_password"/>
 
 		{# If you want to control the URL the user is redirected to on success
-		        <input type="hidden" name="_target_path" value="/account"/> #}
+				        <input type="hidden" name="_target_path" value="/account"/> #}
 		<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
 		<button type="submit">login</button>

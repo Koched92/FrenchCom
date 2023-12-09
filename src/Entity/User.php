@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Entity\Traits\HasIdTrait;
 use App\Entity\Traits\HasTimestampTrait;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -21,11 +20,35 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
-    use HasIdTrait;
     use HasTimestampTrait;
 
     /**
+     * @ORM\Id
+     *
+     * @ORM\GeneratedValue
+     *
+     * @ORM\Column(type="integer")
+     *
+     * @phpstan-ignore-next-line
+     */
+    private int $id;
+
+    /**
+     * @ORM\Column(type="string", length=80)
+     */
+    private string $firstName;
+
+    /**
+     * @ORM\Column(type="string", length=80)
+     */
+    private string $lastName;
+
+    /**
      * @ORM\Column(type="string", length=180, unique=true)
+     *
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email."
+     * )
      */
     private string $email;
 
@@ -44,7 +67,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
 
     /**
-     * @Assert\Length(min = 4)
+     * @Assert\Length(min = 8)
      */
     private ?string $plainPassword = null;
 
@@ -52,6 +75,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="boolean")
      */
     private bool $isVerified = false;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private bool $isApproved = false;
 
     public function getId(): ?int
     {
@@ -157,7 +185,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->plainPassword = null;
     }
 
-    public function isVerified(): bool
+    public function getIsVerified(): bool
     {
         return $this->isVerified;
     }
@@ -165,6 +193,64 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of isApproved.
+     */
+    public function getIsApproved(): bool
+    {
+        return $this->isApproved;
+    }
+
+    /**
+     * Set the value of isApproved.
+     */
+    public function setIsApproved(bool $isApproved): self
+    {
+        $this->isApproved = $isApproved;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of firstName.
+     */
+    public function getFirstName(): string
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * Set the value of firstName.
+     *
+     * @return self
+     */
+    public function setFirstName(string $firstName)
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of lastName.
+     */
+    public function getLastName(): string
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * Set the value of lastName.
+     *
+     * @return self
+     */
+    public function setLastName(string $lastName)
+    {
+        $this->lastName = $lastName;
 
         return $this;
     }

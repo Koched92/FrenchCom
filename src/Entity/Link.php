@@ -41,7 +41,7 @@ class Link
     /**
      * @var Collection<int, LinkHasCategory>
      *
-     * @ORM\OneToMany(targetEntity=LinkHasCategory::class, mappedBy="link", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity=LinkHasCategory::class, mappedBy="link", cascade={"persist", "remove"})
      */
     private Collection $linkHasCategories;
 

@@ -36,8 +36,8 @@ class LinkCrudController extends AbstractCrudController
         return [
             // hide the id field from being displayed on first page
             IdField::new('id')->hideOnIndex()->hideOnForm(),
-            TextField::new('name'),
             ImageField::new('icon')->hideOnForm(),
+            TextField::new('name'),
             UrlField::new('url'),
             AssociationField::new('tags')->formatValue(function ($value, $entity) {
                 return implode(', ', $entity->getTags()->toArray());
