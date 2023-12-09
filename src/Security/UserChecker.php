@@ -15,16 +15,22 @@ class UserChecker implements UserCheckerInterface
             return;
         }
         $isVerified = $user->getIsVerified();
+        $isApproved = $user->getIsApproved();
 
         // this is your custom check:
         if (!$isVerified) {
-            throw new CustomUserMessageAccountStatusException('Please validate your Email, before logging in.');
+            throw new CustomUserMessageAccountStatusException('Please verify your email address by clicking on the confirmation link that has been sent to your inbox.');
+        } elseif (!$isApproved) {
+            throw new CustomUserMessageAccountStatusException('Your account has not yet been approved by the administrator.');
         }
     }
 
-    /* public function checkPostAuth(UserInterface $user)
+    /**
+     * @SuppressWarnings(UnusedFormalParameter)
+     */
+    public function checkPostAuth(UserInterface $user)
     {
         // nothing to check here.
         return;
-    } */
+    }
 }
