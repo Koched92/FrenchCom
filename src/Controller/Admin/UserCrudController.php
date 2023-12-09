@@ -29,7 +29,7 @@ class UserCrudController extends AbstractCrudController
             TextField::new('firstName'),
             TextField::new('lastName'),
             EmailField::new('email'),
-            BooleanField::new('isVerified'),
+            BooleanField::new('isVerified')->renderAsSwitch(false),
             BooleanField::new('isApproved'),
             ChoiceField::new('roles')->setChoices([
                 'ROLE_SUPER_ADMIN' => 'ROLE_SUPER_ADMIN',
