@@ -9,12 +9,14 @@ class UserFixtures extends AbstractFixtures
 {
     public function load(ObjectManager $manager): void
     {
-        $nbIcons = 50;
-        for ($i = 0; $i < $nbIcons; ++$i) {
-            $icon = new User();
-            $icon->setEmail($this->faker->safeEmail())
+        $nbUsers = 5;
+        for ($i = 0; $i < $nbUsers; ++$i) {
+            $user = new User();
+            $user->setFirstName($this->faker->firstName());
+            $user->setLastName($this->faker->lastName());
+            $user->setEmail($this->faker->safeEmail())
                   ->setPassword($this->faker->password(6, 8));
-            $manager->persist($icon);
+            $manager->persist($user);
         }
         $manager->flush();
     }
