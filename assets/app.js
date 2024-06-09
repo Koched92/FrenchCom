@@ -1,17 +1,19 @@
-/*
- * Welcome to your app's main JavaScript file!
- *
- * We recommend including the built version of this JavaScript file
- * (and its CSS file) in your base layout (base.html.twig).
- */
-
-// any CSS you import will output into a single css file (app.css in this case)
-import './styles/app.css';
-
-// start the Stimulus application
-import './bootstrap';
+// main.js
 import { createApp } from 'vue';
-import Navbar from './components/Navbar.vue';
+import ElementPlus from 'element-plus';
+import 'element-plus/dist/index.css';
+import * as ElIcons from '@element-plus/icons-vue';
+import Navbar from './components/Navbar.vue'; // Assurez-vous que le chemin est correct
+
 const app = createApp({});
+
+app.use(ElementPlus);
+
+// Enregistrez globalement les icônes
+for (const [key, component] of Object.entries(ElIcons)) {
+  app.component(key, component);
+}
+
 app.component('navbar-component', Navbar);
+
 app.mount('#app');

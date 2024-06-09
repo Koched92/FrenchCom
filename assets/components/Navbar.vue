@@ -18,12 +18,21 @@
           <a class="navbar-item" href="/">
             Home
           </a>
+          <el-button type="danger" link>Home</el-button>
           <a class="navbar-item" href="/about">
             About
           </a>
           <a class="navbar-item" href="/contact">
             Contact
           </a>
+          <el-button type="primary" plain> 
+            <el-icon :size="size" :color="color">
+              <Search />
+            </el-icon>
+            <el-icon><ChatSquare /></el-icon>
+            Primary
+          </el-button>
+          <el-button type="primary" circle />
         </div>
 
         <div class="navbar-end">
