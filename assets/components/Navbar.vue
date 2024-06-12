@@ -4,7 +4,6 @@
       <el-aside width="200px">
         <div class="logo-container">
           <img src="../img/poisson-rouge.png">
-          <el-button type="warning" style="float:right" round>Poisson Rouge</el-button>
         </div>
         <el-menu active-text-color="#ffd04b" background-color="#545c64" class="el-menu-vertical-demo" default-active="2"
           text-color="#fff" @open="handleOpen" @close="handleClose">
@@ -46,8 +45,8 @@
         </el-menu>
       </el-aside>
       <el-container>
-        <el-header>
-          <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" :ellipsis="false"
+        <el-header class="dark:bg-slate-900">
+          <el-menu :default-active="activeIndex" class="el-menu-demo dark:bg-slate-900" mode="horizontal" :ellipsis="false"
             @select="handleSelect">
             <div class="flex-grow" />
             <el-menu-item index="1">Processing Center</el-menu-item>
@@ -62,19 +61,16 @@
                 <el-menu-item index="2-4-2">item two</el-menu-item>
                 <el-menu-item index="2-4-3">item three</el-menu-item>
               </el-sub-menu>
-            </el-sub-menu>
-            <el-menu-item index="3" disabled>Info</el-menu-item>
+            </el-sub-menu>    
+            <lightDarkMode-component></lightDarkMode-component>
             <div class="avatar">
               <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
-
             </div>
-
           </el-menu>
-
         </el-header>
-        <el-main>
+        <el-main class="dark:bg-slate-800">
           <el-breadcrumb :separator-icon="ArrowRight">
-            <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path: '/' }" class="dark:!text-slate-200">homepage</el-breadcrumb-item>
             <el-breadcrumb-item>promotion management</el-breadcrumb-item>
             <el-breadcrumb-item>promotion list</el-breadcrumb-item>
             <el-breadcrumb-item>promotion detail</el-breadcrumb-item>
@@ -98,13 +94,6 @@ export default {
       ArrowRight
     }
   },
-
-  data() {
-    return {};
-  },
-  methods: {
-
-  }
 };
 </script>
 
@@ -129,14 +118,15 @@ export default {
   flex-grow: 1;
 }
 
-.el-main {
+/* .el-main {
   background-color: #EEF1F4;
-}
+} */
 
 .avatar {
   justify-content: center;
   align-items: center;
   display: inline-flex;
+  padding: 0 12px;
   margin: 0%
 }
 </style>

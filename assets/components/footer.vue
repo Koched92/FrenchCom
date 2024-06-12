@@ -1,5 +1,5 @@
 <template>
-  <div id="container">
+  <div id="container" class="dark:bg-slate-900">
     <div id="contacts">
       <div id="contacts--contact">
         <p>{{ mail }}</p>
@@ -8,6 +8,8 @@
       <div id="contacts--social">
         <div><img src="../img/icons/icons8-linkedin.svg" alt="" srcset=""></div>
         <div><img src="../img/icons/icons8-github.svg" alt="" srcset=""></div>
+        <div><img src="../img/icons/icons8-researchgate.svg" alt="" srcset=""></div>
+        <div><img src="../img/icons/icons8-facebook.svg" alt="" srcset=""></div>
         <div></div>
         <div></div>
       </div>
@@ -23,9 +25,9 @@
 export default {
   data() {
     return {
-      mail: 'xavier.seignard+drangies@gmail.com',
-      phone: '06.00.00.00.00',
-      mention: '2018 | mentions légales'
+      mail: 'hichem.koched@gmail.com',
+      phone: '06.03.03.03.03',
+      mention: '2024 | mentions légales'
     }
   }
 }
@@ -44,10 +46,8 @@ body {
 
 #container {
   padding-top: 20px;
-  margin-top: 20px;
-  width: 100vw;
-  color: white;
-  background-color: #545C64;
+  color: #606266;
+
   display: flex;
   flex-direction: column;
   align-items: center;

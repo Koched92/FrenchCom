@@ -73,6 +73,8 @@ csfix: ## Correction (automatique) de la qualité du code
 # ============= #
 install: ## installer les dependances webpack
 	$(EXEC) npm install
+uninstall: ## desinstaller les dependances webpack
+	$(EXEC) npm uninstall
 watch: ## lancer le serveur de developpement
 	$(EXEC) npm run watch
 
