@@ -1,0 +1,15 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors-node_modules_element-plus_dist_index_css-node_modules_vue-loader_dist_exportHelper_js-ce1149.js",
+        "/build/app.js"
+      ],
+      "css": [
+        "/build/vendors-node_modules_element-plus_dist_index_css-node_modules_vue-loader_dist_exportHelper_js-ce1149.css",
+        "/build/app.css"
+      ]
+    }
+  }
+}
