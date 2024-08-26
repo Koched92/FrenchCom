@@ -67,6 +67,15 @@ check: ## Vérification de la qualité et de la cohérence du code
 	vendor/bin/grumphp run
 csfix: ## Correction (automatique) de la qualité du code
 	vendor/bin/php-cs-fixer fix
+
+# ============= #
+# npm command   #
+# ============= #
+install: ## installer les dependances webpack
+	$(EXEC) npm install
+watch: ## lancer le serveur de developpement
+	$(EXEC) npm run watch
+
 # ============= #
 # Déploiement   #
 # ============= #
