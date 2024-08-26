@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Entity\Traits\HasTimestampTrait;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,6 +14,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ *
+ * @ApiResource(
+ *  itemOperations={"GET","DELETE","PATCH"}
+ * )
  *
  * @SuppressWarnings(ShortVariable)
  *

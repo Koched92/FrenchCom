@@ -9,6 +9,7 @@ use App\Repository\IconRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=IconRepository::class)
@@ -21,6 +22,8 @@ class Icon
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
+     * @Groups({"link:read", "link:write"})
      */
     private string $path;
 
