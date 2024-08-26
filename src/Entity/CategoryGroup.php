@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Entity\Traits\HasIdTrait;
 use App\Entity\Traits\HasNameTrait;
 use App\Repository\CategoryGroupRepository;
@@ -11,6 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=CategoryGroupRepository::class)
+ *
+ * @ApiResource(
+ *  itemOperations={"GET","DELETE","PATCH"}
+ * )
  */
 class CategoryGroup
 {

@@ -2,12 +2,17 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Entity\Traits\HasIdTrait;
 use App\Repository\LinkHasCategoryRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=LinkHasCategoryRepository::class)
+ *
+ * @ApiResource(
+ *  itemOperations={"GET","DELETE","PATCH"}
+ * )
  */
 class LinkHasCategory
 {
