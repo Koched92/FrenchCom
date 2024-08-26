@@ -46,7 +46,9 @@ class LinkSubscriber implements EventSubscriberInterface
         $urlMatcher = new UrlMatcher($routes, $requestContext);
         $domain = $urlMatcher->getContext()->getHost();
 
-        $faviconLink = 'https://www.google.com/s2/favicons?domain='.$domain.'&sz=128';
+        // to catch only icons with size 128
+        // $faviconLink = 'https://www.google.com/s2/favicons?domain='.$domain.'&sz=128';
+        $faviconLink = 'https://www.google.com/s2/favicons?domain='.$domain;
         $client = HttpClient::create();
 
         try {

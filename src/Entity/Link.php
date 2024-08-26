@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Entity\Traits\HasDescriptionTrait;
 use App\Entity\Traits\HasIdTrait;
 use App\Entity\Traits\HasNameTrait;
@@ -10,9 +11,17 @@ use App\Repository\LinkRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=LinkRepository::class)
+ *
+ * @ApiResource(
+ *  collectionOperations={"GET","POST"},
+ *  itemOperations={"GET","DELETE","PATCH"},
+ *  normalizationContext={"groups"={"link:read"}},
+ *  denormalizationContext={"groups"={"link:write"}}
+ * )
  */
 class Link
 {
@@ -28,6 +37,8 @@ class Link
 
     /**
      * @ORM\ManyToOne(targetEntity=Icon::class, inversedBy="links", cascade={"persist"})
+     *
+     * @Groups({"link:read", "link:write"})
      */
     private ?Icon $icon;
 
