@@ -3,10 +3,11 @@
     "app": {
       "js": [
         "/build/runtime.js",
-        "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_da-e0fcee.js",
+        "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_materialize-css_dist_-19a978.js",
         "/build/app.js"
       ],
       "css": [
+        "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_materialize-css_dist_-19a978.css",
         "/build/app.css"
       ]
     }
