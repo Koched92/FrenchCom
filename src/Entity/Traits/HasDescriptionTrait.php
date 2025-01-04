@@ -10,7 +10,7 @@ trait HasDescriptionTrait
     /**
      * @ORM\Column(type="text", nullable=true)
      *
-     * @Groups("get","Recipe:item:get")
+     * @Groups({"link:read", "link:write"})
      */
     private ?string $description;
 

@@ -4,11 +4,14 @@ namespace App\Entity\Traits;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 trait HasNameTrait
 {
     /**
      * @ORM\Column(type="string", length=128)
+     *
+     * @Groups({"link:read", "link:write"})
      */
     private string $name;
 

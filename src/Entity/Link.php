@@ -32,6 +32,8 @@ class Link
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
+     * @Groups({"link:read", "link:write"})
      */
     private string $url;
 
