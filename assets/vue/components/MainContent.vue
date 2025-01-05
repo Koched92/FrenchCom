@@ -1,39 +1,44 @@
 <template>
-  <v-row align="center" justify="center" dense>
+  <v-row class="d-md-flex">
     <!-- Afficher le loader pendant le chargement -->
-    <v-col v-if="loading" v-for="n in 7" :key="n" cols="12" md="6">
-      <v-skeleton-loader :elevation="8" type="list-item-avatar"></v-skeleton-loader>
+    <v-col cols="12" sm="12" md="12">
+      <div class="experience-section">
+        <v-skeleton-loader class="card-class" v-if="loading" v-for="n in 7" :key="n" :elevation="8"
+          type="list-item-avatar"></v-skeleton-loader>
+      </div>
     </v-col>
 
     <!-- Afficher les cartes une fois les données chargées -->
-    <v-col v-for="(link, linkId) in categoryLinks" :key="linkId" cols="12" md="6">
-      <v-card :elevation="8" class="mx-auto" :subtitle="link.slug" :title="link.name">
-        <template v-slot:prepend>
-          <v-avatar size="34">
-            <v-img alt="John" :src="link.icon.path"></v-img>
-          </v-avatar>
-        </template>
-        <template v-slot:append>
-          <a :href="link.url" target="_blank" style="text-decoration: none; color: inherit;">
-            <v-icon>mdi-open-in-new</v-icon>
-          </a>
-        </template>
+    <v-col cols="12" sm="12" md="12">
+      <div class="experience-section">
+        <v-card class="card-class" v-for="(link, linkId) in categoryLinks" :key="linkId" :elevation="8"
+          height="fit-content" :subtitle="link.slug" :title="link.name">
+          <template v-slot:prepend>
+            <v-avatar size="34">
+              <v-img alt="John" :src="link.icon.path"></v-img>
+            </v-avatar>
+          </template>
+          <template v-slot:append>
+            <a :href="link.url" target="_blank" style="text-decoration: none; color: inherit;">
+              <v-icon>mdi-open-in-new</v-icon>
+            </a>
+          </template>
 
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn :icon="expandedCards[linkId] ? 'mdi-chevron-up' : 'mdi-chevron-down'"
-            @click.stop="expandedCards[linkId] = !expandedCards[linkId]"></v-btn>
-        </v-card-actions>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn :icon="expandedCards[linkId] ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+              @click.stop="expandedCards[linkId] = !expandedCards[linkId]"></v-btn>
+          </v-card-actions>
 
-        <v-expand-transition>
-          <div v-show="expandedCards[linkId]">
-            <v-divider></v-divider>
-            <v-card-text>
-              {{ link.description }}
-            </v-card-text>
-          </div>
-        </v-expand-transition>
-      </v-card>
+          <v-expand-transition>
+            <div v-show="expandedCards[linkId]">
+              <v-card-text>
+                {{ link.description }}
+              </v-card-text>
+            </div>
+          </v-expand-transition>
+        </v-card>
+      </div>
     </v-col>
   </v-row>
 </template>
@@ -52,7 +57,8 @@ export default {
     return {
       loading: false,
       expandedCards: {},
-      categoryLinks: []
+      categoryLinks: [],
+      currentRequestId: null
     }
   },
   mounted() {
@@ -64,40 +70,68 @@ export default {
   methods: {
     async getLinksByCategory(categoryId) {
       this.loading = true
-      try {
+      this.categoryLinks = []
 
-        // 1. D'abord, récupérer la catégorie pour avoir les linkHasCategories
+      // Sauvegarder l'ID de la requête actuelle
+      const requestId = Date.now()
+      this.currentRequestId = requestId
+
+      try {
+        // Vérifier si c'est toujours la dernière requête avant de continuer
+        if (requestId !== this.currentRequestId) return
+
         const categoryResponse = await axios.get(`/api/categories/${categoryId}`)
         const linkHasCategoriesUrls = categoryResponse.data.linkHasCategories
-        this.categoryLinks = []
-        // 2. Pour chaque linkHasCategory, récupérer les détails du lien
-        for (const linkHasCategoryUrl of linkHasCategoriesUrls) {
-          try {
-            // Récupérer le linkHasCategory
-            const linkHasCategoryResponse = await axios.get(linkHasCategoryUrl)
-            // Récupérer l'URL complète du lien
-            const linkUrl = linkHasCategoryResponse.data.link
 
-            // Récupérer les détails du lien
+        const links = []
+        for (const linkHasCategoryUrl of linkHasCategoriesUrls) {
+          // Vérifier à nouveau si c'est toujours la dernière requête
+          if (requestId !== this.currentRequestId) return
+
+          try {
+            const linkHasCategoryResponse = await axios.get(linkHasCategoryUrl)
+            const linkUrl = linkHasCategoryResponse.data.link
             const linkResponse = await axios.get(linkUrl)
-            this.categoryLinks.push(linkResponse.data)
+
+            // Ne mettre à jour les liens que si c'est toujours la dernière requête
+            if (requestId === this.currentRequestId) {
+              links.push(linkResponse.data)
+            }
           } catch (error) {
             console.error(`Erreur lors du chargement du lien:`, error)
           }
         }
 
-        // Stocker les liens dans categoryLinks
-        return this.categoryLinks
+        // Mise à jour finale uniquement si c'est toujours la dernière requête
+        if (requestId === this.currentRequestId) {
+          this.categoryLinks = links
+        }
 
+        return links
       } catch (error) {
         console.error(`Erreur lors du chargement des liens pour la catégorie ${categoryId}:`, error)
         return []
       } finally {
-        this.loading = false
+        if (requestId === this.currentRequestId) {
+          this.loading = false
+        }
       }
     }
   }
 }
+
 </script>
 
-<style></style>
+<style scoped>
+.card-class {
+  width: 30%;
+}
+
+.experience-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+</style>
