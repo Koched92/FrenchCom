@@ -17,7 +17,9 @@ trait HasNameTrait
 
     /**
      * @gedmo\Slug(fields={"name"}, unique=true)
-     *
+     * 
+     * @Groups({"link:read", "link:write"})
+     * 
      * @ORM\Column(type="string", length=128, unique=true)
      */
     private string $slug;
