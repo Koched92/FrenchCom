@@ -2,10 +2,12 @@
   "build/app.css": "/build/app.css",
   "build/app.js": "/build/app.js",
   "build/runtime.js": "/build/runtime.js",
-  "build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_mdi_font_css_material-75fde4.css": "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_mdi_font_css_material-75fde4.css",
-  "build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_mdi_font_css_material-75fde4.js": "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_mdi_font_css_material-75fde4.js",
+  "build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_mdi_font_css_material-9df345.css": "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_mdi_font_css_material-9df345.css",
+  "build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_mdi_font_css_material-9df345.js": "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_mdi_font_css_material-9df345.js",
   "build/fonts/materialdesignicons-webfont.eot": "/build/fonts/materialdesignicons-webfont.2146c3c8.eot",
   "build/fonts/materialdesignicons-webfont.ttf?v=7.4.47": "/build/fonts/materialdesignicons-webfont.1fcc3627.ttf",
   "build/fonts/materialdesignicons-webfont.woff?v=7.4.47": "/build/fonts/materialdesignicons-webfont.e55a20c8.woff",
-  "build/fonts/materialdesignicons-webfont.woff2?v=7.4.47": "/build/fonts/materialdesignicons-webfont.ec024da7.woff2"
+  "build/fonts/materialdesignicons-webfont.woff2?v=7.4.47": "/build/fonts/materialdesignicons-webfont.ec024da7.woff2",
+  "build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_mdi_font_css_material-d353a2.css": "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_mdi_font_css_material-d353a2.css",
+  "build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_mdi_font_css_material-d353a2.js": "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_mdi_font_css_material-d353a2.js"
 }

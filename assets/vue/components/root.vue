@@ -16,19 +16,7 @@
       <v-main>
         <v-container>
           <MainContent ref="mainContent" />
-          <div class="speed-dial-container">
-            <v-speed-dial transition="slide-y-reverse-transition" open-on-hover="true" location="bottom right"
-              direction="top">
-              <template v-slot:activator="{ props: activatorProps }">
-                <v-fab v-bind="activatorProps" size="large" icon="$vuetify"></v-fab>
-              </template>
-
-              <v-btn key="1" icon="$success"></v-btn>
-              <v-btn key="2" icon="$info"></v-btn>
-              <v-btn key="3" icon="$warning"></v-btn>
-              <v-btn key="4" icon="$error"></v-btn>
-            </v-speed-dial>
-          </div>
+          <SpeedDial />
         </v-container>
       </v-main>
 
@@ -42,6 +30,7 @@ import { ref } from 'vue'
 
 import SideMenu from './sideMenu.vue';
 import MainContent from './MainContent.vue';
+import SpeedDial from './SpeedDial.vue';
 
 export default {
   data() {
@@ -53,7 +42,8 @@ export default {
   },
   components: {
     SideMenu,
-    MainContent
+    MainContent,
+    SpeedDial,
   },
   methods: {
     handleCategorySelection(categoryId) {
@@ -69,11 +59,6 @@ function onClick() {
 }
 </script>
 
-<style scoped>
-.speed-dial-container {
-  position: fixed;
-  bottom: 40px;
-  right: 80px;
-  z-index: 999;
-}
+<style>
+
 </style>
