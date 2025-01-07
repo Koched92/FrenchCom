@@ -29,9 +29,15 @@ class CategoryGroup
      */
     private Collection $linkHasCategories;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Category::class, mappedBy="categoryGroup")
+     */
+    private $Category;
+
     public function __construct()
     {
         $this->linkHasCategories = new ArrayCollection();
+        $this->Category = new ArrayCollection();
     }
 
     /**
@@ -67,5 +73,35 @@ class CategoryGroup
     public function __toString()
     {
         return (string) $this->getName();
+    }
+
+    /**
+     * @return Collection<int, Category>
+     */
+    public function getCategory(): Collection
+    {
+        return $this->Category;
+    }
+
+    public function addCategory(Category $category): self
+    {
+        if (!$this->Category->contains($category)) {
+            $this->Category[] = $category;
+            $category->setCategoryGroup($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Category $category): self
+    {
+        if ($this->Category->removeElement($category)) {
+            // set the owning side to null (unless already changed)
+            if ($category->getCategoryGroup() === $this) {
+                $category->setCategoryGroup(null);
+            }
+        }
+
+        return $this;
     }
 }

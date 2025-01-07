@@ -6,14 +6,17 @@
     <v-text-field v-model="state.url" :error-messages="v$.url.$errors.map(e => e.$message)" label="URL" required
       @blur="v$.url.$touch" @input="v$.url.$touch"></v-text-field>
 
-    <v-select v-model="state.select" :error-messages="v$.select.$errors.map(e => e.$message)" :items="CategoryGroups"
-      label="Category group" required @blur="v$.select.$touch" @change="v$.select.$touch"
-      @update:model-value="selectUpdateHandler"></v-select>
+    <v-select v-model="state.selectCategoryGroup" :error-messages="v$.selectCategoryGroup.$errors.map(e => e.$message)"
+      :items="CategoryGroups" label="Category group" required @blur="v$.selectCategoryGroup.$touch"
+      @change="v$.selectCategoryGroup.$touch" @update:model-value="fetchCategoriesByGroupId"></v-select>
 
-    <v-select v-model="state.select" :error-messages="v$.select.$errors.map(e => e.$message)" :items="Category"
-      label="Category" required @blur="v$.select.$touch" @change="v$.select.$touch"></v-select>
+    <v-select v-model="state.selectCategory" :error-messages="v$.selectCategory.$errors.map(e => e.$message)"
+      :items="Category" label="Category" required @blur="v$.selectCategory.$touch"
+      @change="v$.selectCategory.$touch"></v-select>
 
-    <v-select clearable chips label="Tags" required :items="Tags" multiple variant="outlined"></v-select>
+    <v-select v-model="state.tags" :error-messages="v$.selectCategory.$errors.map(e => e.$message)" clearable chips
+      label="Tags" required :items="Tags" @blur="v$.selectCategory.$touch" @change="v$.selectCategory.$touch" multiple
+      variant="outlined"></v-select>
 
     <v-textarea :error-messages="v$.textarea.$errors.map(e => e.$message)" label="Description" append-icon="mdi-text"
       variant="outlined" required @blur="v$.textarea.$touch" @change="v$.textarea.$touch"></v-textarea>
@@ -40,7 +43,9 @@ import axios from 'axios'
 const initialState = {
   name: '',
   url: '',
-  select: null,
+  selectCategoryGroup: null,
+  selectCategory: null,
+  tags: [],
   checkbox: null,
 }
 
@@ -52,11 +57,14 @@ const CategoryGroups = ref([])
 const Category = ref([])
 const Tags = ref([])
 
-const fetchGroups = async () => {
+const fetchCategoryGroups = async () => {
   try {
     const response = await axios.get('/api/category_groups')
 
-    CategoryGroups.value = response.data['hydra:member'].map(group => group.name)
+    CategoryGroups.value = response.data['hydra:member'].map(group => ({
+      title: group.name,  // ce qui sera affiché dans le select
+      value: group.id     // la valeur qui sera récupérée à la sélection
+    }))
 
   } catch (error) {
     console.error('Erreur lors du chargement des données:', error)
@@ -72,21 +80,33 @@ const fetchTags = async () => {
     console.error('Erreur lors du chargement des données:', error)
   }
 }
-const selectUpdateHandler = (selectedValue) => {
-  console.log(selectedValue);
+const fetchCategoriesByGroupId = async (CategoryGroupId) => {
+
+  try { 
+    state.selectCategory = null
+    const response = await axios.get(`/api/categories?categoryGroup.id=${CategoryGroupId}`)
+    Category.value = response.data['hydra:member'].map(category => ({
+      title: category.name,  // ce qui sera affiché dans le select
+      value: category.id     // la valeur    qui sera récupérée à la sélection
+    }))
+
+  } catch (error) {
+    console.error('Erreur lors du chargement des données:', error)
+  }
 
 }
 onMounted(() => {
-  fetchGroups()
+  fetchCategoryGroups()
   fetchTags()
 })
 
 const rules = {
   name: { required },
   url: { required },
-  select: { required },
+  selectCategoryGroup: { required },
+  selectCategory: { required },
   textarea: { required },
-  items: { required },
+  tags: { required },
   checkbox: { required },
 }
 

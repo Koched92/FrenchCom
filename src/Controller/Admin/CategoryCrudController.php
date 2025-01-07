@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 class CategoryCrudController extends AbstractCrudController
 {
@@ -24,7 +25,13 @@ class CategoryCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('name'),
+            AssociationField::new('categoryGroup')->formatValue(function ($value, $entity) {
+                return $entity->getCategoryGroup();
+            })->setFormTypeOptions([
+                'by_reference' => true,
+            ]),
             TextEditorField::new('description'),
+            
         ];
     }
 }

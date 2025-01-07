@@ -11,6 +11,8 @@ use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Annotation\ApiFilter;
 
 /**
  * @ORM\Entity(repositoryClass=CategoryRepository::class)
@@ -18,6 +20,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ApiResource(
  *  itemOperations={"GET","DELETE","PATCH"}
  * )
+ * @ApiFilter(SearchFilter::class, properties={"name": "partial","categoryGroup.id": "exact"})
  */
 class Category
 {
@@ -32,6 +35,11 @@ class Category
      * @ORM\OneToMany(targetEntity=LinkHasCategory::class, mappedBy="category")
      */
     private Collection $linkHasCategories;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=CategoryGroup::class, inversedBy="Category")
+     */
+    private $categoryGroup;
 
     public function __construct()
     {
@@ -71,5 +79,17 @@ class Category
     public function __toString()
     {
         return (string) $this->getName();
+    }
+
+    public function getCategoryGroup(): ?CategoryGroup
+    {
+        return $this->categoryGroup;
+    }
+
+    public function setCategoryGroup(?CategoryGroup $categoryGroup): self
+    {
+        $this->categoryGroup = $categoryGroup;
+
+        return $this;
     }
 }
